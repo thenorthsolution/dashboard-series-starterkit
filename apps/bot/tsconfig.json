@@ -1,0 +1,18 @@
+{
+  /**
+   * TypeScript config for the Discord.js bot.
+   * Uses CommonJS + NodeNext resolution so discord.js and Node built-ins
+   * resolve correctly at runtime without bundling.
+   */
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": ["ES2022"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,139 @@
+/**
+ * globals.css — Tailwind v4 entry point + shadcn/ui CSS variable theme.
+ *
+ * Tailwind v4 changes:
+ * - @import "tailwindcss" replaces the old @tailwind directives.
+ * - Theme is defined with CSS custom properties inside @layer base.
+ * - No tailwind.config.ts is required for basic setup (config lives here).
+ *
+ * Design decisions:
+ * - Dark theme only — Discord users expect dark UIs.
+ * - Colors are lifted from Discord's design system and adjusted for contrast.
+ * - shadcn/ui reads these exact variable names — do not rename them.
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Discord-inspired dark theme */
+  --background: 223 7% 14%;           /* #1e1f22 — Discord's base bg  */
+  --foreground: 210 11% 98%;           /* #f8f9fa — near white text     */
+
+  --card: 225 6% 18%;                  /* #2b2d31 — card / channel list */
+  --card-foreground: 210 11% 98%;
+
+  --popover: 225 6% 18%;
+  --popover-foreground: 210 11% 98%;
+
+  --primary: 235 86% 65%;              /* #5865f2 — Discord blurple     */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 225 6% 25%;             /* #35373c — slightly lighter    */
+  --secondary-foreground: 210 11% 98%;
+
+  --muted: 225 6% 22%;                 /* #2e3035 — muted backgrounds   */
+  --muted-foreground: 215 9% 64%;      /* #9a9da2 — muted text          */
+
+  --accent: 235 86% 65%;               /* blurple accent                */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 51%;            /* #da3633 — red for danger      */
+
+  --border: 225 6% 22%;
+  --input: 225 6% 22%;
+  --ring: 235 86% 65%;
+
+  /* Chart colours (used by recharts / shadcn charts later) */
+  --chart-1: 235 86% 65%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+
+  /* Sidebar — matches Discord's sidebar panel */
+  --sidebar: 220 7% 16%;
+  --sidebar-foreground: 210 11% 98%;
+  --sidebar-primary: 235 86% 65%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 225 6% 22%;
+  --sidebar-accent-foreground: 210 11% 98%;
+  --sidebar-border: 225 6% 22%;
+  --sidebar-ring: 235 86% 65%;
+}
+
+/* Base resets */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar — Discord style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

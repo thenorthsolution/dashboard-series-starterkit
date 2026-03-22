@@ -1,0 +1,50 @@
+// prisma/schema.prisma
+//
+// Prisma v7 schema for the Discord Dashboard.
+//
+// --- Prisma v7 breaking changes applied here ---
+//
+// 1. `url` is NO LONGER set in the datasource block.
+//    The database connection now lives entirely in `prisma.config.ts`.
+//    Putting `url = env("DATABASE_URL")` here is a hard error in v7.
+//
+// 2. `output` is NOW REQUIRED in the generator block.
+//    Prisma v7 no longer generates the client into node_modules by default.
+//    We output to `../src/generated/client` so the path is predictable
+//    and works correctly across the monorepo.
+//
+// 3. provider is `prisma-client` (not the old `prisma-client-js`).
+//    The old provider still works as an alias in v7 but will be removed
+//    in a future release — use the new name from the start.
+//
+// Models are added in later episodes:
+//   Episode 2  — Guild, GuildSettings
+//   Episode 7  — WarnLog, ModerationCase
+//   Episode 9  — WelcomeConfig
+//   Episode 11 — AutoRoleConfig
+//   Episode 13 — CommandConfig
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  // Connection URL is configured in prisma.config.ts — not here.
+  // Prisma v7 will throw P1012 if you add `url = env(...)` in this block.
+  provider = "postgresql"
+}
+
+// ─── Models will be added in Episode 2 ───────────────────────────────────────
+//
+// Coming up next episode:
+//
+// model Guild {
+//   id        String   @id            // Discord guild (server) snowflake ID
+//   name      String
+//   iconUrl   String?
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//
+//   settings  GuildSettings?
+// }
