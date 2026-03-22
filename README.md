@@ -90,7 +90,7 @@ pnpm db:push
 cd apps/web
 ```
 
-Paste pnpm command created by the page into terminal.
+Paste pnpm command created by the page into terminal. After that is done, run:
 
 ```bash
 pnpm dlx shadcn@latest add button card badge separator avatar skeleton switch tabs sheet dialog sonner select dropdown-menu
