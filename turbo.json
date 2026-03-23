@@ -1,21 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
   "tasks": {
-    /**
-     * Build order: packages must build before the apps that consume them.
-     * "^build" means "run build in all dependencies first".
-     */
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
 
-    /**
-     * Dev runs all packages and apps concurrently with --persistent
-     * so long-running watchers (Next.js, ts-node-dev) all stay alive.
-     */
     "dev": {
       "cache": false,
       "persistent": true
@@ -29,10 +20,6 @@
       "dependsOn": ["^type-check"]
     },
 
-    /**
-     * Prisma tasks live in packages/database.
-     * Other packages can list this as a dependency if they need generated types.
-     */
     "db:generate": {
       "cache": false
     },
