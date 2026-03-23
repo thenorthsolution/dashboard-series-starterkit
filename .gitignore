@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+.next
+out
+build
+
+# Turbo cache
+.turbo
+
+# Environment files — NEVER commit real secrets
+.env
+.env.local
+.env.*.local
+# .env.example is intentionally NOT ignored — it's safe to commit
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Prisma generated client (generated at install/build time via prisma generate)
+packages/database/src/generated
+
+# TypeScript cache
+*.tsbuildinfo
