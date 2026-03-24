@@ -5,7 +5,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blurple.svg)](LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-9.x-orange)](https://pnpm.io)
-[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
 [![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2)](https://discord.js.org)
 
 ---
@@ -18,7 +18,7 @@ A full-stack starter kit that gives you a production-ready dashboard for your Di
 
 | Layer      | Technology                                         |
 | ---------- | -------------------------------------------------- |
-| Frontend   | Next.js 15, App Router, Tailwind CSS v4, shadcn/ui |
+| Frontend   | Next.js 16, App Router, Tailwind CSS v4, shadcn/ui |
 | Auth       | NextAuth v5, Discord OAuth2                        |
 | Bot        | Discord.js v14, TypeScript                         |
 | Database   | Prisma ORM + PostgreSQL (Neon.tech)                |
@@ -33,7 +33,7 @@ A full-stack starter kit that gives you a production-ready dashboard for your Di
 ```
 discord-dashboard/
 ├── apps/
-│   ├── web/          → Next.js 15 dashboard
+│   ├── web/          → Next.js 16 dashboard
 │   └── bot/          → Discord.js v14 bot
 ├── packages/
 │   ├── database/     → Prisma client + schema (shared)
